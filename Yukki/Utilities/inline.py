@@ -73,7 +73,7 @@ def paginate_modules(page_n, module_dict, prefix, chat=None):
                     callback_data="{}_module({})".format(prefix, modulo_page),
                 ),
                 EqInlineKeyboardButton(
-                    "Close",
+                    "Đóng",
                     callback_data="close",
                 ),
                 EqInlineKeyboardButton(
