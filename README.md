@@ -54,7 +54,7 @@ Read [Docs](https://notreallyshikhar.gitbook.io/yukkimusicbot/deployment/require
   
 ## How To Host
 The easiest way to deploy this Bot
-<p align="left"><a href="https://heroku.com/deploy?template=https://github.com/Duckoi1707/YukkiMusicBot"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-purple?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="left"><a href="https://dashboard.heroku.com/new?template=https://github.com/Duckoi1707/Vxer3"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-purple?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 
     
