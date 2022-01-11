@@ -61,13 +61,13 @@ async def play(_, message: Message):
     url = get_url(message)
     if audio:
         mystic = await message.reply_text(
-            "🔄 Processing Audio... Please Wait!"
+            "🔄 Đang xử lý âm thanh ... Vui lòng đợi!"
         )
         try:
             read = db_mem[message.chat.id]["live_check"]
             if read:
                 return await mystic.edit(
-                    "Live Streaming Playing...Stop it to play music"
+                    "Đang phát trực tiếp ... Dừng lại để phát nhạc"
                 )
             else:
                 pass
@@ -81,7 +81,7 @@ async def play(_, message: Message):
         duration_sec = audio.duration
         if (audio.duration) > DURATION_LIMIT:
             return await mystic.edit_text(
-                f"**Duration Limit Exceeded**\n\n**Allowed Duration: **{DURATION_LIMIT_MIN} minute(s)\n**Received Duration:** {duration_min} minute(s)"
+                f"**Đã vượt quá giới hạn thời lượng**\n\n**Thời lượng được phép: **{DURATION_LIMIT_MIN} Phút(s)\n**Thời lượng đã nhận:** {duration_min} Phút(s)"
             )
         file_name = (
             audio.file_unique_id
@@ -111,7 +111,7 @@ async def play(_, message: Message):
         limit = await get_video_limit(141414)
         if not limit:
             return await message.reply_text(
-                "**No Limit Defined for Video Calls**\n\nSet a Limit for Number of Maximum Video Calls allowed on Bot by /set_video_limit [Sudo Users Only]"
+                "**Không có giới hạn được xác định cho cuộc gọi điện video ** \n\nĐặt giới hạn cho số cuộc gọi điện video tối đa được phép trên Bot trước /set_video_limit [Yêu Cầu Quản Lí Bot]"
             )
         count = len(await get_active_video_chats())
         if int(count) == int(limit):
