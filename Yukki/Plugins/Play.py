@@ -46,7 +46,7 @@ async def play(_, message: Message):
         db_mem[message.chat.id] = {}
     if message.sender_chat:
         return await message.reply_text(
-            "You're an __Anonymous Admin__ in this Chat Group!\nRevert back to User Account From Admin Rights."
+            "Bạn là __Quản trị viên ẩn danh__ trong Nhóm trò chuyện này! \n Quay lại Tài khoản Người dùng Từ Quyền của Quản trị viên."
         )
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
