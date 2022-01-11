@@ -87,11 +87,11 @@ async def initiate_bot():
     try:
         await app.send_message(
             LOG_GROUP_ID,
-            "<b>Congrats!! Music Bot has started successfully!</b>",
+            "<b>Chúc mừng!!  Bot đã bắt đầu chạy thành công!</b>",
         )
     except Exception as e:
         print(
-            "\nBot has failed to access the log Channel. Make sure that you have added your bot to your log channel and promoted as admin!"
+            "\nBot đã không thể truy cập vào Kênh nhật ký. Đảm bảo rằng bạn đã thêm bot vào kênh nhật ký của mình và thăng cấp làm quản trị viên!"
         )
         console.print(f"\n[red]Stopping Bot")
         return
@@ -106,11 +106,11 @@ async def initiate_bot():
         try:
             await ASS_CLI_1.send_message(
                 LOG_GROUP_ID,
-                "<b>Congrats!! Assistant Client 1  has started successfully!</b>",
+                "<b>Chúc mừng!! Trợ lý Khách hàng 1 đã bắt đầu thành công!</b>",
             )
         except Exception as e:
             print(
-                "\nAssistant Account 1 has failed to access the log Channel. Make sure that you have added your Assistant to your log channel and promoted as admin!"
+                "\nTài khoản Trợ lý 1 không truy cập được vào Kênh nhật ký. Đảm bảo rằng bạn đã thêm Trợ lý vào kênh nhật ký của mình và thăng cấp làm quản trị viên!"
             )
             console.print(f"\n[red]Stopping Bot")
             return
