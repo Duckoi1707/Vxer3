@@ -1,6 +1,6 @@
 
 <h4 align="center">
-    A Telegram Music+video Bot written in Python using Pyrogram and Py-Tgcalls 
+    Một Bot video + Telegram Music được viết bằng Python sử dụng Pyrogram và Py-Tgcalls
 </h4>
 <p align="center">
     <a href="https://t.me/YukkiRobot"> Ready-To-Use Bot </a> •
@@ -9,9 +9,8 @@
     <a href="https://t.me/YukkiSupport"> Support Chat </a> 
 </p>
     
-# Yukki Music Bot
-A Powerful Telegram Music+Video Bot by which you can stream songs, videos and even live streams in your group calls via various sources. It comes with  user friendly and easy to use yet elegant features.
-
+# Vxer3
+Một Bot Âm nhạc + Video Telegram mạnh mẽ, nhờ đó bạn có thể phát trực tuyến các bài hát, video và thậm chí là các luồng trực tiếp trong các cuộc gọi nhóm của mình qua nhiều nguồn khác nhau. Nó đi kèm với các tính năng thân thiện và dễ sử dụng nhưng trang nhã.
 ## Deployment
 Read [Docs](https://notreallyshikhar.gitbook.io/yukkimusicbot/deployment/requirements) for Detailed Description and Setup Guide on deploying Bot.
 
