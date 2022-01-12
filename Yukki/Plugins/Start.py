@@ -27,20 +27,20 @@ from Yukki.Utilities.ping import get_readable_time
 
 welcome_group = 2
 
-__MODULE__ = "Essentials"
+__MODULE__ = "Hướng Giẫn"
 __HELP__ = """
 
 
 /start 
-- Start the Bot.
+- Khởi động Bot.
 
 
-/help 
-- Get Commands Helper Menu.
+/mhelp 
+- Nhận menu trợ giúp lệnh.
 
 
-/settings 
-- Get Settings button.
+/msettings 
+- Nhận nút Cài đặt.
 """
 
 
@@ -94,7 +94,7 @@ async def welcome(_, message: Message):
             return
 
 
-@app.on_message(filters.command(["", ""]) & filters.group)
+@app.on_message(filters.command(["3dfdsda", "ằdsdweqwđ"]) & filters.group)
 @PermissionCheck
 async def useradd(_, message: Message):
     out = start_pannel()
