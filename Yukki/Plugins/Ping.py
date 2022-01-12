@@ -22,7 +22,7 @@ async def bot_sys_stats():
     mem = psutil.virtual_memory().percent
     disk = psutil.disk_usage("/").percent
     stats = f"""
-Uptime: {get_readable_time((bot_uptime))}
+Thời gian hoạt động: {get_readable_time((bot_uptime))}
 CPU: {cpu}%
 RAM: {mem}%
 Disk: {disk}%"""
