@@ -20,19 +20,19 @@ __HELP__ = """
 
 
 /playplaylist 
-- Start playing Your Saved Playlist.
+- Bắt đầu phát Danh sách phát đã lưu của bạn.
 
 
 /playlist 
-- Check Your Saved Playlist On Servers.
+- Kiểm tra danh sách phát đã lưu của bạn trên máy chủ.
 
 
 /delmyplaylist
-- Delete any saved music in your playlist
+- Xóa mọi bản nhạc đã lưu trong danh sách phát của bạn
 
 
 /delgroupplaylist
-- Delete any saved music in your group's playlist [Requires Admin Rights.]
+- Xóa mọi bản nhạc đã lưu trong danh sách phát của nhóm bạn [Yêu cầu Quyền quản trị.]
 """
 
 
