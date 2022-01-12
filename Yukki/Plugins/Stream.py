@@ -32,16 +32,16 @@ from Yukki.Utilities.youtube import (get_m3u8, get_yt_info_id,
 
 loop = asyncio.get_event_loop()
 
-__MODULE__ = "VideoCalls"
+__MODULE__ = "Phát Nhạc"
 __HELP__ = f"""
 
-/play [Reply to any Video] or [YT Link] or [Music Name]
-- Stream Video on Voice Chat
+/play [Trả lời bất kỳ video nào] hoặc [Liên kết YT] hoặc [Tên nhạc]
+- Phát trực tuyến video trên trò chuyện thoại
 
-**For Sudo User:-**
+**Quản Lí Thực Hiện:-**
 
-/set_video_limit [Number of Chats]
-- Set a maximum Number of Chats allowed for Video Calls at a time.
+/set_video_limit [Số cuộc trò chuyện]
+- Đặt số lượng cuộc trò chuyện tối đa được phép cho các cuộc gọi điện video tại một thời điểm.
 
 
 """
