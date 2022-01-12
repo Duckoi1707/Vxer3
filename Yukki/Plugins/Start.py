@@ -94,7 +94,7 @@ async def welcome(_, message: Message):
             return
 
 
-@app.on_message(filters.command(["help", "start"]) & filters.group)
+@app.on_message(filters.command(["", ""]) & filters.group)
 @PermissionCheck
 async def useradd(_, message: Message):
     out = start_pannel()
@@ -107,7 +107,7 @@ async def useradd(_, message: Message):
     )
 
 
-@app.on_message(filters.command("settings") & filters.group)
+@app.on_message(filters.command("msettings") & filters.group)
 @PermissionCheck
 async def settings(_, message: Message):
     c_id = message.chat.id
@@ -124,7 +124,7 @@ async def settings(_, message: Message):
     await asyncio.gather(
         message.delete(),
         message.reply_text(
-            f"{text}\n\n**Group:** {message.chat.title}\n**Group ID:** {message.chat.id}\n**Volume Level:** {volume}%",
+            f"{text}\n\n**Nhóm:** {message.chat.title}\n**Nhóm ID:** {message.chat.id}\n**Âm Thanh Cấp Độ:** {volume}%",
             reply_markup=InlineKeyboardMarkup(buttons),
         ),
     )
@@ -142,7 +142,7 @@ async def okaybhai(_, CallbackQuery):
 
 @app.on_callback_query(filters.regex("settingm"))
 async def settingm(_, CallbackQuery):
-    await CallbackQuery.answer("Bot Settings ...")
+    await CallbackQuery.answer("Cài đặt Bot ...")
     text, buttons = setting_markup()
     c_title = CallbackQuery.message.chat.title
     c_id = CallbackQuery.message.chat.id
