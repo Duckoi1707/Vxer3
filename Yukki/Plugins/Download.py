@@ -18,17 +18,17 @@ from Yukki.Utilities.download import get_formats, get_type
 user_time = {}
 flex = {}
 
-__MODULE__ = "Global Ban"
+__MODULE__ = "Cấm Toàn Cầu"
 __HELP__ = """
 
 **Note:**
-Only for Sudo Users.
+Bạn Phải Là Quản Lí Bot Mới Có Thể Sử Dụng.
 
-/gban [Username or Reply to a user]
-- Ban a user globally in Bot's Served Chats and prevents user from using bot commands.
+/gban [Tên người dùng hoặc Trả lời người dùng]
+- Cấm một người dùng trên toàn cầu trong các Cuộc trò chuyện được Phục vụ của Bot và ngăn người dùng sử dụng các lệnh của bot.
 
-/ungban [Username or Reply to a user]
-- Remove a user from Bot's GBan List.
+/ungban [Tên người dùng hoặc Trả lời người dùng]
+- Xóa một người dùng khỏi Danh sách GBan của Bot.
 """
 
 
