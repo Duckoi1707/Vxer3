@@ -12,7 +12,7 @@ __MODULE__ = "Speedtest"
 __HELP__ = """
 
 /speedtest 
-- Check Server Latency and Speed.
+- Kiểm tra độ trễ và tốc độ của máy chủ.
 
 """
 
