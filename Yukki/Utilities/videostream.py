@@ -200,7 +200,7 @@ async def start_video_stream(
         buttons = primary_markup(
             videoid, CallbackQuery.from_user.id, duration_min, duration_min
         )
-        cap = f"**Video Streaming**\n\n🎥<b>__Đang Phát:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Info:__</b> [Nhận thông tin bổ sung](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Yêu Cầu Bởi:__** {CallbackQuery.from_user.mention}"
+        cap = f"**Video Streaming**\n\n🎥<b>__Đang Phát:__ </b>[{title[:25]}](https://www.youtube.com/watch?v={videoid}) \n💡<b>__Thông Tin:__</b> [Nhận thông tin bổ sung](https://t.me/{BOT_USERNAME}?start=info_{videoid})\n👤**__Yêu Cầu Bởi:__** {CallbackQuery.from_user.mention}"
         final_output = await CallbackQuery.message.reply_photo(
             photo=thumb,
             reply_markup=InlineKeyboardMarkup(buttons),
