@@ -26,11 +26,11 @@ def url_markup(videoid, duration, user_id, query, query_type):
         ],
         [
             InlineKeyboardButton(
-                text="🔎 Kết quả khác",
+                text="🔎 Tìm Thêm",
                 callback_data=f"Search {query}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="🗑 Đóng Tìm kiếm",
+                text="🗑 Đóng Menu",
                 callback_data=f"forceclose {query}|{user_id}",
             ),
         ],
