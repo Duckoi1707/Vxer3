@@ -242,13 +242,13 @@ async def help_command(_, message):
     await app.send_message(message.chat.id, text, reply_markup=keyboard)
 
 
-@app.on_message(filters.command("sdawse2qewsxsadwedd") & filters.private)
+@app.on_message(filters.command("start") & filters.private)
 async def start_command(_, message):
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
             sudoers = await get_sudoers()
-            text = "⭐️<u> **Owners:**</u>\n"
+            text = "⭐️<u> **Những chủ sở hữu:**</u>\n"
             sex = 0
             for x in OWNER_ID:
                 try:
@@ -272,13 +272,13 @@ async def start_command(_, message):
                         )
                         if smex == 0:
                             smex += 1
-                            text += "\n⭐️<u> **Sudo Users:**</u>\n"
+                            text += "\n⭐️<u> **Người dùng Sudo:**</u>\n"
                         sex += 1
                         text += f"{sex}➤ {user}\n"
                     except Exception:
                         continue
             if not text:
-                await message.reply_text("No Sudo Users")
+                await message.reply_text("Không có người dùng Sudo")
             else:
                 await message.reply_text(text)
             if await is_on_off(5):
@@ -287,7 +287,7 @@ async def start_command(_, message):
                 umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
                 return await LOG_CLIENT.send_message(
                     LOG_GROUP_ID,
-                    f"{message.from_user.mention} has just started bot to check <code>SUDOLIST</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+                    f"{message.from_user.mention} Vừa mới bắt đầu bot để kiểm tra <code>SUDOLIST</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
         if name == "help":
             text, keyboard = await help_parser(message.from_user.mention)
@@ -298,7 +298,7 @@ async def start_command(_, message):
                 reply_markup=keyboard,
             )
         if name[0] == "i":
-            m = await message.reply_text("🔎 Fetching Info!")
+            m = await message.reply_text("🔎 Tìm nạp thông tin!")
             query = (str(name)).replace("info_", "", 1)
             query = f"https://www.youtube.com/watch?v={query}"
             results = VideosSearch(query, limit=1)
@@ -312,26 +312,26 @@ async def start_command(_, message):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**Video Track Information**__
+🔍__**Thông tin bản nhạc video**__
 
-❇️**Title:** {title}
+❇️**Tiêu Đề:** {title}
 
-⏳**Duration:** {duration} Mins
+⏳**Thời Lượng:** {duration} Mins
 👀**Views:** `{views}`
-⏰**Published Time:** {published}
-🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
-🔗**Video Link:** [Link]({link})
+⏰**Thời Gian Xuất Bản:** {published}
+🎥**Tên Kênh:** {channel}
+📎**Liên Kết Kênh:** [Visit From Here]({channellink})
+🔗**Liên Kết Video:** [Link]({link})
 
-⚡️ __Searched Powered By {BOT_NAME}__"""
+⚡️ __Tìm Kiếm Được Cung Cấp Bởi {BOT_NAME}__"""
             key = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 Watch Youtube Video", url=f"{link}"
+                            text="🎥 Xem Video Trên Youtube", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🔄 Close", callback_data="close"
+                            text="🔄 Đóng", callback_data="close"
                         ),
                     ],
                 ]
@@ -350,7 +350,7 @@ async def start_command(_, message):
                 umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
                 return await LOG_CLIENT.send_message(
                     LOG_GROUP_ID,
-                    f"{message.from_user.mention} has just started bot to check <code>VIDEO INFORMATION</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+                    f"{message.from_user.mention} Vừa mới bắt đầu bot để kiểm tra <code>VIDEO INFORMATION</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
             return
     out = private_panel()
