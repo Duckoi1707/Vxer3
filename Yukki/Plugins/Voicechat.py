@@ -23,7 +23,7 @@ __HELP__ = """
 
 **Note:**
 Only for Sudo Users
-
+ 
 
 /joinassistant [Chat Username or Chat ID]
 - Join assistant to a group.
@@ -89,16 +89,16 @@ async def timer_checkup_markup(_, CallbackQuery):
         )
 
 
-@app.on_message(filters.command("queue"))
+@app.on_message(filters.command("danhs"))
 async def activevc(_, message: Message):
     global get_queue
     if await is_active_chat(message.chat.id):
-        mystic = await message.reply_text("Please Wait... Getting Queue..")
+        mystic = await message.reply_text("Vui lòng đợi ... Đang xếp hàng..")
         dur_left = db_mem[message.chat.id]["left"]
         duration_min = db_mem[message.chat.id]["total"]
         got_queue = get_queue.get(message.chat.id)
         if not got_queue:
-            await mystic.edit(f"Nothing in Queue")
+            await mystic.edit(f"Không có gì trong hàng đợi")
         fetched = []
         for get in got_queue:
             fetched.append(get)
@@ -107,22 +107,22 @@ async def activevc(_, message: Message):
         current_playing = fetched[0][0]
         user_name = fetched[0][1]
 
-        msg = "**Queued List**\n\n"
-        msg += "**Currently Playing:**"
+        msg = "**Danh Sách Phát**\n\n"
+        msg += "**Hiện đang chơi:**"
         msg += "\n▶️" + current_playing[:30]
-        msg += f"\n   ╚By:- {user_name}"
-        msg += f"\n   ╚Duration:- Remaining `{dur_left}` out of `{duration_min}` Mins."
+        msg += f"\n   ╚Yêu Cầu Bởi:- {user_name}"
+        msg += f"\n   ╚Thời Lượng:- Thời Gian Phát Còn Lại `{dur_left}` Trên `{duration_min}` Phút."
         fetched.pop(0)
         if fetched:
             msg += "\n\n"
-            msg += "**Up Next In Queue:**"
+            msg += "**Tiếp theo trong hàng đợi:**"
             for song in fetched:
                 name = song[0][:30]
                 usr = song[1]
                 dur = song[2]
                 msg += f"\n⏸️{name}"
-                msg += f"\n   ╠Duration : {dur}"
-                msg += f"\n   ╚Requested by : {usr}\n"
+                msg += f"\n   ╠Thời Lượng : {dur}"
+                msg += f"\n   ╚Yêu Cầu Bởi : {usr}\n"
         if len(msg) > 4096:
             await mystic.delete()
             filename = "queue.txt"
@@ -130,14 +130,14 @@ async def activevc(_, message: Message):
                 out_file.write(str(msg.strip()))
             await message.reply_document(
                 document=filename,
-                caption=f"**OUTPUT:**\n\n`Queued List`",
+                caption=f"**ĐẦU RA:**\n\n`Danh sách xếp hàng`",
                 quote=False,
             )
             os.remove(filename)
         else:
             await mystic.edit(msg)
     else:
-        await message.reply_text(f"Nothing in Queue")
+        await message.reply_text(f"Không có gì trong hàng đợi")
 
 
 @app.on_message(filters.command("activevc") & filters.user(SUDOERS))
