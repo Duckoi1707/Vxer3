@@ -42,11 +42,11 @@ def url_markup2(videoid, duration, user_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text="🎵 Phát Video",
+                text="🎵 Phát Nhạc",
                 callback_data=f"MusicStream {videoid}|{duration}|{user_id}",
             ),
             InlineKeyboardButton(
-                text="🎥 Phát Nhạc",
+                text="🎥 Phát Video",
                 callback_data=f"Choose {videoid}|{duration}|{user_id}",
             ),
         ],
