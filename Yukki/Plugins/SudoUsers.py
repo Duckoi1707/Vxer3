@@ -28,10 +28,10 @@ __HELP__ = """
 Only for Sudo Users. 
 
 
-/addsudo [Username or Reply to a user]
+/admin [Username or Reply to a user]
 - To Add A User In Bot's Sudo Users.
 
-/delsudo [Username or Reply to a user]
+/deladmin [Username or Reply to a user]
 - To Remove A User from Bot's Sudo Users.
 
 /maintenance [enable / disable]
@@ -46,12 +46,12 @@ Only for Sudo Users.
 # Add Sudo Users!
 
 
-@app.on_message(filters.command("addsudo") & filters.user(OWNER_ID))
+@app.on_message(filters.command("admin") & filters.user(OWNER_ID))
 async def useradd(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "Reply to a user's message or give username/user_id."
+                "Trả lời tin nhắn của người dùng hoặc cung cấp tên người dùng/user_id."
             )
             return
         user = message.text.split(None, 1)[1]
@@ -60,12 +60,12 @@ async def useradd(_, message: Message):
         user = await app.get_users(user)
         if user.id in SUDOERS:
             return await message.reply_text(
-                f"{user.mention} is already a sudo user."
+                f"{user.mention} đã là một người dùng sudo."
             )
         added = await add_sudo(user.id)
         if added:
             await message.reply_text(
-                f"Added **{user.mention}** to Sudo Users."
+                f"Thêm **{user.mention}** cho người dùng Sudo."
             )
             os.system(f"kill -9 {os.getpid()} && python3 -m Yukki")
         else:
@@ -91,7 +91,7 @@ async def userdel(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "Reply to a user's message or give username/user_id."
+                "Trả lời tin nhắn của người dùng hoặc cung cấp tên người dùng/user_id."
             )
             return
         user = message.text.split(None, 1)[1]
@@ -100,11 +100,11 @@ async def userdel(_, message: Message):
         user = await app.get_users(user)
         from_user = message.from_user
         if user.id not in SUDOERS:
-            return await message.reply_text(f"Not a part of Bot's Sudo.")
+            return await message.reply_text(f"Không phải là một phần của Bot's Sudo.")
         removed = await remove_sudo(user.id)
         if removed:
             await message.reply_text(
-                f"Removed **{user.mention}** from {MUSIC_BOT_NAME}'s Sudo."
+                f"Loại bỏ **{user.mention}** từ {MUSIC_BOT_NAME}' Admim."
             )
             return os.system(f"kill -9 {os.getpid()} && python3 -m Yukki")
         await message.reply_text(f"Something wrong happened.")
@@ -114,21 +114,21 @@ async def userdel(_, message: Message):
     mention = message.reply_to_message.from_user.mention
     if user_id not in SUDOERS:
         return await message.reply_text(
-            f"Not a part of {MUSIC_BOT_NAME}'s Sudo."
+            f"Không phải là một phần của {MUSIC_BOT_NAME}'Admin."
         )
     removed = await remove_sudo(user_id)
     if removed:
         await message.reply_text(
-            f"Removed **{mention}** from {MUSIC_BOT_NAME}'s Sudo."
+            f"Loại bỏ **{mention}** từ {MUSIC_BOT_NAME}' Admin."
         )
         return os.system(f"kill -9 {os.getpid()} && python3 -m Yukki")
-    await message.reply_text(f"Something wrong happened.")
+    await message.reply_text(f"Có gì đó không ổn đã xảy ra.")
 
 
 @app.on_message(filters.command("sudolist"))
 async def sudoers_list(_, message: Message):
     sudoers = await get_sudoers()
-    text = "⭐️<u> **Owners:**</u>\n"
+    text = "⭐️<u> **Vua:**</u>\n"
     sex = 0
     for x in OWNER_ID:
         try:
@@ -146,13 +146,13 @@ async def sudoers_list(_, message: Message):
                 user = user.first_name if not user.mention else user.mention
                 if smex == 0:
                     smex += 1
-                    text += "\n⭐️<u> **Sudo Users:**</u>\n"
+                    text += "\n⭐️<u> **Admin :**</u>\n"
                 sex += 1
                 text += f"{sex}➤ {user}\n"
             except Exception:
                 continue
     if not text:
-        await message.reply_text("No Sudo Users")
+        await message.reply_text("Không có người dùng Admin")
     else:
         await message.reply_text(text)
 
