@@ -212,7 +212,7 @@ async def maintenance(_, message):
 async def logger(_, message):
     if LOG_SESSION == "None":
         return await message.reply_text(
-            "No Logger Account Defined.\n\nPlease Set <code>LOG_SESSION</code> var and then try loggging."
+            "Không có tài khoản người ghi nhật ký được xác định.\n\nPlease Set <code>LOG_SESSION</code> var and then try loggging."
         )
     usage = "**Usage:**\n/logger [enable|disable]"
     if len(message.command) != 2:
@@ -274,13 +274,13 @@ async def ban_globally(_, message):
                 except Exception:
                     pass
             ban_text = f"""
-__**New Global Ban on {MUSIC_BOT_NAME}**__
+__**Lệnh Cấm Toàn Cầu {MUSIC_BOT_NAME}**__
 
-**Origin:** {message.chat.title} [`{message.chat.id}`]
-**Sudo User:** {from_user.mention}
-**Banned User:** {user.mention}
-**Banned User ID:** `{user.id}`
-**Chats:** {number_of_chats}"""
+**Nhóm Thực Hiện:** {message.chat.title} [`{message.chat.id}`]
+**Quản Trị Viên:** {from_user.mention}
+**Cấm User Thành Viên:** {user.mention}
+**Cấm ID Thành Viên:** `{user.id}`
+**Nhóm:** {number_of_chats}"""
             try:
                 await m.delete()
             except Exception:
@@ -325,13 +325,13 @@ __**New Global Ban on {MUSIC_BOT_NAME}**__
                 except Exception:
                     pass
             ban_text = f"""
-__**New Global Ban on {MUSIC_BOT_NAME}**__
+__**Lệnh cấm toàn cầu mới trên {MUSIC_BOT_NAME}**__
 
-**Origin:** {message.chat.title} [`{message.chat.id}`]
-**Sudo User:** {from_user_mention}
-**Banned User:** {mention}
-**Banned User ID:** `{user_id}`
-**Chats:** {number_of_chats}"""
+**Nhóm Thực Hiện:** {message.chat.title} [`{message.chat.id}`]
+**Quản Trị Viên:** {from_user_mention}
+**Cấm User Thành Viên:** {mention}
+**Cấm ID Thành Viên:** `{user_id}`
+**Nhóm:** {number_of_chats}"""
             try:
                 await m.delete()
             except Exception:
